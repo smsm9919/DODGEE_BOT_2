@@ -1,0 +1,63 @@
+services:
+  - type: web
+    name: mashrou3-bot
+    env: python
+    plan: starter
+    region: frankfurt
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    autoDeploy: false
+    envVars:
+      - key: BINGX_API_KEY
+        sync: false
+      - key: BINGX_API_SECRET
+        sync: false
+
+      - key: PYTHON_VERSION
+        value: 3.10.14
+      - key: DECISION_EVERY_S
+        value: 30
+      - key: KEEPALIVE_SECONDS
+        value: 50
+      - key: SYMBOL
+        value: DOGE/USDT:USDT
+      - key: INTERVAL
+        value: 15m
+      - key: LEVERAGE
+        value: "10"
+      - key: RISK_ALLOC
+        value: "0.60"
+      - key: RF_SOURCE
+        value: close
+      - key: RF_PERIOD
+        value: "20"
+      - key: RF_MULT
+        value: "3.5"
+      - key: USE_TV_BAR
+        value: "false"
+      - key: RSI_LEN
+        value: "14"
+      - key: ADX_LEN
+        value: "14"
+      - key: ATR_LEN
+        value: "14"
+      - key: SPREAD_GUARD_BPS
+        value: "6"
+      - key: COOLDOWN_AFTER_CLOSE_BARS
+        value: "0"
+      - key: STRATEGY
+        value: smart
+      - key: USE_SMART_EXIT
+        value: "true"
+      - key: TP1_PCT
+        value: "0.40"
+      - key: TP1_CLOSE_FRAC
+        value: "0.50"
+      - key: BREAKEVEN_AFTER_PCT
+        value: "0.30"
+      - key: TRAIL_ACTIVATE_PCT
+        value: "0.60"
+      - key: ATR_MULT_TRAIL
+        value: "1.6"
+      - key: PORT
+        value: "5000"
